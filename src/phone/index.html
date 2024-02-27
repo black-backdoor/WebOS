@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     <title>Phone Preview | WebOS</title>
 
+    <!-- MODULES -->
+    <script src="/modules/share.js"></script>
+
     <link rel="stylesheet" href="/phone/style.css" type="text/css" />
     <script src="/phone/redirect.js"></script>
+    <script src="/phone/share.js"></script>
 
     <!-- ICONS -->
     <link rel="icon" href="/icon/favicon.svg" type="image/svg">
@@ -19,7 +23,7 @@
             <a href="#" title="Tablet"><img src="/icon/devices/tablet.svg" alt="Tablet"></a>
         </nav>
         <nav class="side-actions">
-            <a href="#" title="Back"><img src="/icon/navigation/mobile/back.svg" alt="Back"></a>
+            <a href="/" title="Back"><img src="/icon/navigation/mobile/back.svg" alt="Back"></a>
         </nav>
     </div>
     <main>
@@ -37,6 +41,9 @@
             </div>
         </div>
     </main>
+    <button id="share">
+        <img src="/icon/community/share.svg" copied="/icon/copy.svg" alt="Share">
+    </button>
 </body>
 
 </html>

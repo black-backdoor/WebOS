@@ -1,0 +1,135 @@
+:root {
+    --statusbar-height: 36px;
+    
+    --statusbar-color: white;
+    --statusbar-bgcolor: #1c1c1c;
+}
+
+
+@media (prefers-color-scheme: light) {
+    /* LIGHT MODE */
+    /*
+    :root {
+        --statusbar-color: black;
+        --statusbar-bgcolor: #eeeeee;
+    }
+    */
+
+    /* light mode has been disabled since the icons are white */
+}
+
+
+/* color */
+.mobile#status-bar {
+    color: var(--statusbar-color);
+    background-color: var(--statusbar-bgcolor);
+}
+
+
+/* position */
+.mobile#status-bar {
+    display: none;
+    z-index: 500;
+
+    /* position */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* size */
+.mobile#status-bar {
+    height: var(--statusbar-height);
+    padding: 0 22px;
+    width: calc(100% - 44px);
+}
+
+.mobile#status-bar {
+    user-select: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* ----------- BAR ----------- */
+@media screen and (max-width: 1000px) {
+    /* DISPLAY BAR AT TOP -> MOBILE NAV BAR */
+    .mobile#status-bar {
+        /* elements */
+        display: flex;
+    }
+}
+
+
+
+
+/* ----------- ELEMENTS ----------- */
+.mobile#status-bar > section {
+    height: 80%;
+    padding: 0 0.3rem;
+}
+
+
+
+/* ----------- TIME ----------- */
+.mobile#status-bar section.time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ----------- ICONS ----------- */
+.mobile#status-bar section.menu {
+    display: flex;
+}
+
+.mobile#status-bar section.menu .icons,
+.mobile#status-bar section.menu .icons img {
+    height: 100%;
+}
+
+/* BATTERY */
+.mobile#status-bar section.menu > .battery {
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+
+.mobile#status-bar section.menu .battery .battery-icon {
+    max-height: 100%;
+    max-width: 48px;
+    margin-left: 0.2rem;
+}
+
+
+.mobile#status-bar section.menu .battery .battery-icon {
+    --fill: white;
+    --bg: gray;
+}
+
+.mobile#status-bar section.menu .battery .battery-icon > .battery {
+    border-radius: 3px;
+    height: 16px;
+    width: 12px;
+    background-color: var(--bg);
+
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.mobile#status-bar section.menu .battery .battery-icon > .battery-head {
+    border-radius: 2px 2px 0 0;
+    margin-left: 2px;
+    height: 2px;
+    width: 8px;
+    background-color: var(--bg);
+}
+
+.mobile#status-bar section.menu .battery .battery-icon > .battery > .fill {
+    width: 100%;
+    background-color: var(--fill);
+    height: 42%;
+    border-radius: 3px;
+}

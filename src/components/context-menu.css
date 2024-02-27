@@ -16,6 +16,29 @@
 
 
 
+#context-menu.scroll {
+    height: 40vh;
+    overflow-y: scroll;
+}
+
+
+/*  NO ANIMATION 
+    #context-menu {
+        position: fixed;
+        z-index: 9999;
+        width: 150px;
+        background-color: #1b1a1a;
+        border-radius: 5px;
+        display: none;
+    }
+
+    #context-menu.visible {
+        display: block;
+    }
+*/
+
+
+
 #context-menu .item {
     padding: 8px 10px;
     font-size: 15px;
@@ -27,3 +50,6 @@
 #context-menu .item:hover {
     background-color: #343434;
 }
+
+
+

@@ -19,7 +19,7 @@ class AppWindow extends HTMLElement {
 
     render() {
         /* get current content */
-        this.content = this.querySelector("main")?.innerHTML || this.content;
+        this.content = this.querySelector("app-window > main")?.innerHTML || this.content;
        
         /* render the window */        
         this.innerHTML = this.template().trim();

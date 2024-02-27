@@ -1,0 +1,57 @@
+:root {
+    --bg-color: #0079d8;
+    --text-color: white;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+main {
+    height: 70%;
+    width: 70%;
+}
+
+
+/* title: ":(" */
+h1 {
+    margin: 0;
+    font-size: 20vh;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+a {
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 750px) {
+    h1 {
+        font-size: 10vh;
+    }
+}
+
+@media screen and (max-width: 380px){
+    main {
+        width: 95%;
+    }
+}

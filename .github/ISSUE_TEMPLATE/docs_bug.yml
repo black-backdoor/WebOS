@@ -1,0 +1,19 @@
+name: "📚 Documentation or README.md issue report"
+description: Report an issue in the project's documentation or README.md file.
+title: "[Documentation]"
+labels: ["documentation"]
+body:
+  - type: input
+    id: path
+    attributes:
+      label: Where is the issue?
+      description: Provide the path to the file or documentation section where the issue is located.
+    validations:
+      required: false
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is the problem?
+      description: Describe the issue you are facing with the documentation or README.md file.
+    validations:
+      required: true

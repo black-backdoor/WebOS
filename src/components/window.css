@@ -168,3 +168,25 @@ app-window > footer {
     background-color: var(--window-footer-bgcolor);
     border-radius: 0 0 8px 8px;  /* ROUND BOTTOM CORNERS */
 }
+
+
+
+
+/* ############## WINDOW OPTIONS ############## */
+
+/* -------------- FULLSCREEN -------------- */
+app-window.fullscreen {
+    top: 0px;
+    left: 0px ;
+    width: 100vw !important;
+    height: calc(100vh - var(--taskbar-height)) !important;
+}
+
+app-window.fullscreen > header {
+    border-radius: 0;
+}
+
+app-window.fullscreen > footer {
+    border-radius: 0;
+}
+

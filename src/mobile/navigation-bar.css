@@ -1,0 +1,112 @@
+:root {
+    --navigationbar-height: 2.5rem;
+
+    --navigationbar-bgcolor: #1c1c1c;
+    --navigationbar-hover-bgcolor: #2c2c2c;
+
+    --navigationbar-swipe: white;
+    --navigationbar-swipe-hover: gray;
+}
+
+@media (prefers-color-scheme: light) {
+    /* LIGHT MODE */
+    /*
+    :root {
+        --navigationbar-bgcolor: #eeeeee;
+        --navigationbar-hover-bgcolor: #dddddd;
+    }
+    */
+}
+
+
+
+/* color */
+.mobile#navigation-bar {
+    background-color: var(--navigationbar-bgcolor);
+}
+
+/* position */
+.mobile#navigation-bar {
+    display: none;
+    z-index: 500;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* size */
+.mobile#navigation-bar {
+    height: var(--navigationbar-height);
+    width: 100vw;
+}
+
+
+
+/* ############### Buttons ############### */
+
+/* ----------------- three navigation-bar ----------------- */
+.mobile#navigation-bar button {
+    border: none;
+    background: none;
+    height: 100%;
+
+    margin: 0 5%;
+}
+
+.mobile#navigation-bar button img {
+    /* ICON */
+    height: 100%;
+    width: auto;
+}
+
+
+.mobile#navigation-bar button:active {
+    background-color: var(--navigationbar-hover-bgcolor);
+}
+
+
+
+/* ----------------- Swipe gestures ----------------- */
+
+.mobile#navigation-bar button.swipe {
+    display: none;
+}
+
+/*
+.mobile#navigation-bar button {
+    display: none;
+}
+
+.mobile#navigation-bar button.swipe {
+    display: block;
+    
+    border-radius: 1rem;
+
+    width: 60%;
+    height: 8px;
+    
+    background-color: var(--navigationbar-swipe);
+}
+.mobile#navigation-bar button.swipe:active {
+    background-color: var(--navigationbar-swipe-hover);
+}
+
+
+:root {
+    --navigationbar-height: 0px;
+}
+
+*/
+
+
+/* ############### BAR ############### */
+@media screen and (max-width: 1000px) {
+
+    /* DISPLAY BAR AT TOP -> MOBILE NAV BAR */
+    .mobile#navigation-bar {
+        /* elements */
+        display: flex;
+        justify-content: center;
+    }
+}

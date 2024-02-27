@@ -16,8 +16,16 @@
 
     <!-- SCRIPT -->
     <script src="/taskbar.js"></script>
+
+    <!-- MOBILE (ONLY DISPLAYED ON MOBILE) -->
+    <script src="/mobile/status-bar.js"></script>
+    <link rel="stylesheet" href="/mobile/status-bar.css" type="text/css" />
+    <link rel="stylesheet" href="/mobile/navigation-bar.css" type="text/css" />
+
+    <!-- DESKTOP (ONLY DISPLAYED / USED ON DESKTOP) -->
     <script src="/connection.js"></script>
     <script src="/sound.js"></script>
+
 </head>
 <body>
     <!-- DESKTOP -->
@@ -63,6 +71,7 @@
                      src-no = when not connected
                 -->
             </div>
+
             <div class="speaker icon" title="Speakers (RTalk(L) Audio): 0%"><img
                 alt="speaker"
                 src="/icon/sound/speaker.svg"
@@ -75,6 +84,7 @@
                      each src-n value is a different volume level -> currently 3 levels
                  -->
             </div>
+            
             <div class="battery-status icon" title="Battery status: 50% remaining">
                 <img src="/icon/power/battery.svg" alt="battery">
                 <!-- TODO: SCRIPT FOR SHOWING PERCENTAGE IN TITLE -->
@@ -92,5 +102,47 @@
 
 
     <!-- MOBILE (ONLY DISPLAYED ON MOBILE) -->
+    <nav id="status-bar" class="mobile" >
+        <!-- BAR AT THE TOP -->
+        <section class="time">
+            <!-- DISPLAY TIME -->
+            <div class="time">14:51</div>
+        </section>
+        <section class="menu">
+            <div class="icons wifi" title="WiFi-Name&#013Internet access">
+                <img src="/icon/connection/wifi.svg" alt="Wifi">
+            </div>
+            <div class="icons cellular" title="Cellular network">
+                <img src="/icon/connection/cellular.svg" alt="cellular">
+            </div>
+            <!-- <div class="battery" title="42%">
+                <h3 class="percentage">42%</h3>
+                <div class="battery-icon">
+                    <div class="battery-head"></div>
+                    <div class="battery">
+                        <div class="fill"></div>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </nav>
+    <nav id="navigation-bar" class="mobile" >
+        <!-- BAR AT THE BOTTOM -->
+        <button class="recent" title="Recent">
+            <!-- When you tap this, your recently opened apps will appear. -->
+            <img src="/icon/navigation/mobile/windows.svg" alt="windows">
+        </button>
+        <button class="home" title="Home">
+            <!-- Tap this to be taken to the Home screen. -->
+            <img src="/icon/navigation/mobile/home.svg" alt="home">
+        </button>
+        <button class="back" title="Back">
+            <!-- Tap this to go back to the previous screen. -->
+            <img class="icon" src="/icon/navigation/mobile/back.svg" alt="back">
+        </button>
+        <button class="swipe">
+            <!-- Swipe gestures -->
+        </button>
+    </nav>
 </body>
 </html>

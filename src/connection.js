@@ -19,10 +19,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+/* CONNECTION */
+/*
+    ```HTML
+    <div class="internet-access icon"
+        title="Winternet&#013No connection"
+        online-title="WiFi-Name&#013Internet access"
+        offline-title="No internet access&#013No connections available"
+        >
 
-
+        <img alt="Wifi"
+            src="/icon/connection/wifi.svg"
+            src-yes="/icon/connection/wifi.svg"
+            src-no="/icon/connection/no-wifi.svg"
+        >
+    </div>
+    ```
+    the src-yes attribute represents the connected wifi icon, and the src-no attribute represents the disconnected wifi icon.
+    the online-title attribute represents the title when the wifi is connected, and the offline-title attribute represents the title when the wifi is disconnected.
+*/
 
 function setWifiStatus(status){
+    /*
+     * Set the wifi status on the taskbar
+     * @param {boolean} status - the wifi status
+     * @return {void}
+     */
+
+    
     if(typeof status !== 'boolean'){ console.warn("[setWifiStatus] Status should be a boolean  | input", typeof status); return; }
 
     const wifi = document.querySelector("#taskbar .menu .internet-access");
@@ -32,7 +56,7 @@ function setWifiStatus(status){
 
     const onlineTitle = wifi.getAttribute("online-title");
     const offlineTitle = wifi.getAttribute("offline-title");
-    
+
     if(status) {
         wifiIcon.src = yes_src;
         wifi.title = onlineTitle;

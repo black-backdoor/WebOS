@@ -16,6 +16,7 @@
 
     <!-- SCRIPT -->
     <script src="/taskbar.js"></script>
+    <script src="/connection.js"></script>
 </head>
 <body>
     <!-- DESKTOP -->
@@ -39,8 +40,27 @@
 
         <section class="menu">
             <!-- MENU -->
-            <div class="internet-access icon" title="Winternet&#013No connection">
-                <img alt="Wifi" src="/icon/connection/wifi.svg">
+            <div class="internet-access icon"
+                title="Winternet&#013No connection"
+                online-title="WiFi-Name&#013Internet access"
+                offline-title="No internet access&#013No connections available"
+                >
+                <!-- 
+                    title = default,
+                    online-title = when connected,
+                    offline-title = when not connected
+                -->
+
+
+                <img alt="Wifi"
+                    src="/icon/connection/wifi.svg"
+                    src-yes="/icon/connection/wifi.svg"
+                    src-no="/icon/connection/no-wifi.svg"
+                >
+                <!-- src = default,
+                     src-yes = when connected,
+                     src-no = when not connected
+                -->
             </div>
 
             <div class="speaker icon" title="Speakers (RTalk(L) Audio): 0%"><img alt="speaker" src="/icon/sound/speaker.svg">

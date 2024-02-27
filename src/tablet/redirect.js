@@ -7,9 +7,9 @@ window.onload = function() {
         return confirm("Your screen size is too small for this content. Do you want to be redirected to the mobile version?");
     }
 
-    if (window.innerWidth < 440) {
-        // Redirect to mobile.html if screen width is less than 440px
-        console.warn(`%c[Warning]%c Screen size is too small for content! min-width is 440px; currently: ${window.innerWidth};`, 'color: red; font-weight: bold;', 'color: inherit;');
+    if (window.innerWidth < 1100) {
+        // Redirect to mobile.html if screen width is less than 1100px
+        console.warn(`%c[Warning]%c Screen size is too small for content! min-width is 1100x; currently: ${window.innerWidth};`, 'color: red; font-weight: bold;', 'color: inherit;');
         if(popup() === true) {
             window.location.href = "/";
         }

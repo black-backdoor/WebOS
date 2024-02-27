@@ -49,6 +49,7 @@
 
     <!-- APPS -->
     <link rel="stylesheet" href="/taskbar-apps.css" type="text/css" />
+    <script src="/apps/share.js"></script>
 
 </head>
 <body>
@@ -69,6 +70,25 @@
 
         <section class="apps">
             <!-- APPS -->
+            <div class="app share" title="Share">
+                <!-- SHARE BUTTON -->
+                <button><img src="/icon/community/share.svg" copied="/icon/copy.svg" alt="app-icon">
+                    <div class="app-underline"></div>
+                </button>
+            </div>
+            <div class="app" title="GitHub">
+                <!-- PLACE HOLDER -->
+                <button onclick="window.location.href='https://github.com/black-backdoor/WebOS/';"><img src="/icon/community/github.svg" alt="app-icon">
+                    <div class="app-underline"></div>
+                </button>
+            </div>
+            <div class="app" title="About">
+                <!-- PLACE HOLDER -->
+                <button onclick="window.location.href='/about/';"><img src="/icon/about.svg" alt="app-icon">
+                    <div class="app-underline"></div>
+                </button>
+            </div>
+            <!--
             <div class="app" title="HEAD">
                 <button><img src="/icon/connection/wifi.svg" alt="app-icon">
                     <div class="app-underline"></div>
@@ -84,6 +104,7 @@
                     <div class="app-underline"></div>
                 </button>
             </div>
+            -->
         </section>
 
         <section class="menu">

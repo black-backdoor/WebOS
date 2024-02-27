@@ -6,6 +6,9 @@
 
     <title>Experience WebOS</title>
 
+    <!-- MODULES -->
+    <script src="/modules/share.js"></script>
+
     <!-- ICONS -->
     <link rel="icon" href="/icon/favicon.svg" />
 
@@ -43,6 +46,10 @@
     <script src="/connection.js"></script>
     <script src="/sound.js"></script>
 
+
+    <!-- APPS -->
+    <link rel="stylesheet" href="/taskbar-apps.css" type="text/css" />
+
 </head>
 <body>
     <!-- DESKTOP -->
@@ -62,6 +69,21 @@
 
         <section class="apps">
             <!-- APPS -->
+            <div class="app" title="HEAD">
+                <button><img src="/icon/connection/wifi.svg" alt="app-icon">
+                    <div class="app-underline"></div>
+                </button>
+            </div>
+            <div class="app running" title="HEAD">
+                <button><img src="/icon/connection/wifi.svg" alt="app-icon">
+                    <div class="app-underline"></div>
+                </button>
+            </div>
+            <div class="app running alert" title="HEAD">
+                <button><img src="/icon/connection/wifi.svg" alt="app-icon">
+                    <div class="app-underline"></div>
+                </button>
+            </div>
         </section>
 
         <section class="menu">

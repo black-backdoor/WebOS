@@ -1,0 +1,88 @@
+/* 
+    EXPLANATION 
+    .app = an app in the taskbar
+    .app.running = an app in the taskbar that is running
+    .app.alert = an app in the taskbar that has an alert
+*/
+
+/* ########### COLORS ########### */
+:root {
+    --app-alert-color: rgba(241, 3, 3, 0.4);
+    --app-underline-color: rgb(154, 154, 154);
+    --app-hover-color: rgba(36, 36, 36, 0.8);
+
+    --app-alert-hover-color: rgba(180, 43, 43, 0.4);
+}
+
+
+#taskbar > .apps {
+    display: flex;
+}
+
+
+/* ---------- APP ---------- */
+
+/* CLICK EFFECT */
+#taskbar > .apps .app button {
+    transition: transform 0.3s ease;
+}
+
+#taskbar > .apps .app button:active {
+    transform: scale(0.8);
+}
+
+
+/* APP */
+#taskbar > .apps .app {
+    height: 100%;
+    width: fit-content;
+
+    background-color: transparent;
+    border: transparent;
+}
+
+#taskbar > .apps .app button {
+    height: 100%;
+
+    padding: 2px;
+
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+/* UNDERLINE OF APP */
+#taskbar > .apps .app.running .app-underline {
+    position: relative;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 20%;
+    height: 6%;
+
+    border-radius: 1rem;
+    background-color: var(--app-underline-color);
+}
+
+/* APP ALERT */
+#taskbar > .apps .app.alert button {
+    background-color: var(--app-alert-color);
+}
+
+/* app icon */
+#taskbar > .apps .app img {
+    height: 100%;
+    width: 100%;
+
+    user-select: none;
+}
+
+/* HOVER EFFECT */
+#taskbar > .apps .app button:hover {
+    background-color: var(--app-hover-color);
+}
+
+#taskbar > .apps .app.alert button:hover {
+    background-color: var(--app-alert-hover-color);
+}

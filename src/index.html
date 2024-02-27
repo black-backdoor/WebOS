@@ -17,6 +17,7 @@
     <!-- SCRIPT -->
     <script src="/taskbar.js"></script>
     <script src="/connection.js"></script>
+    <script src="/sound.js"></script>
 </head>
 <body>
     <!-- DESKTOP -->
@@ -62,8 +63,17 @@
                      src-no = when not connected
                 -->
             </div>
-
-            <div class="speaker icon" title="Speakers (RTalk(L) Audio): 0%"><img alt="speaker" src="/icon/sound/speaker.svg">
+            <div class="speaker icon" title="Speakers (RTalk(L) Audio): 0%"><img
+                alt="speaker"
+                src="/icon/sound/speaker.svg"
+                src-no="/icon/sound/speaker-muted.svg"
+                src-1="/icon/sound/speaker-1.svg"
+                src-2="/icon/sound/speaker-2.svg"
+                src-3="/icon/sound/speaker-3.svg"
+                speaker-levels="3">
+                <!-- if the number of src-n values are changed, the `speaker-levels` attribute must be changed
+                     each src-n value is a different volume level -> currently 3 levels
+                 -->
             </div>
             <div class="battery-status icon" title="Battery status: 50% remaining">
                 <img src="/icon/power/battery.svg" alt="battery">

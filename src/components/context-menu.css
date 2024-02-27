@@ -1,9 +1,13 @@
 #context-menu {
+    user-select: none;
+
     position: fixed;
     z-index: 9999;
     width: 200px;
+
     background-color: #1b1a1a;
     border-radius: 5px;
+
     transform: scale(0);
     transform-origin: top left;
 }

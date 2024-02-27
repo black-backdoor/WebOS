@@ -9,6 +9,11 @@
     <!-- MODULES -->
     <script src="/modules/share.js"></script>
 
+    <!-- COMPONENTS -->
+    <script defer src="/components/window.js"></script>
+    <link rel="stylesheet" href="/components/window.css" type="text/css" />
+    
+
     <!-- ICONS -->
     <link rel="icon" href="/icon/favicon.svg" />
 
@@ -50,12 +55,28 @@
     <!-- APPS -->
     <link rel="stylesheet" href="/taskbar-apps.css" type="text/css" />
     <script src="/apps/share.js"></script>
-
+    <link rel="stylesheet" href="/apps/about.css" type="text/css" />
 </head>
 <body>
     <!-- DESKTOP -->
     <main id="desktop">
         <h1>WebOS</h1>
+        <app-window class="about" window-title="About">
+            <iframe src="/about/"></iframe>
+        </app-window>
+        <app-window window-title="1" style="color: gray; height: 5vh; width: 7vw;">
+            <h1>Test</h1>
+            <p> is a test.</p>
+        </app-window>
+        <app-window window-title="Window 2" style="color: gray; height: 20vh; width: 20vw;">
+            <style>
+                app-window.dragging .only-show-dragging {
+                    display: block !important;
+                }
+            </style>
+            <h1>Test2</h1>
+            <div class="only-show-dragging" style="display: none;"><h1>DRAGGING</h1></div>
+        </app-window>
     </main>
 
     <div id="taskbar">
@@ -77,13 +98,13 @@
                 </button>
             </div>
             <div class="app" title="GitHub">
-                <!-- PLACE HOLDER -->
+                <!-- GitHub -->
                 <button onclick="window.location.href='https://github.com/black-backdoor/WebOS/';"><img src="/icon/community/github.svg" alt="app-icon">
                     <div class="app-underline"></div>
                 </button>
             </div>
             <div class="app" title="About">
-                <!-- PLACE HOLDER -->
+                <!-- ABOUT -->
                 <button onclick="window.location.href='/about/';"><img src="/icon/about.svg" alt="app-icon">
                     <div class="app-underline"></div>
                 </button>

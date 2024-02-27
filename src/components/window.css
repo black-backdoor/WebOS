@@ -1,0 +1,170 @@
+:root {
+    --window-head-color: #000;
+
+    --window-head-bgcolor: #fdfdfd;
+    --window-body-bgcolor: #e7e7e7;
+    --window-footer-bgcolor: #e7e7e7;
+
+
+    --window-control-close: #df6963;
+    --window-control-minimize: #F2D35B;
+    --window-control-maximize: #97c38a;
+
+    --window-control-hover-close: #ee3a30;
+    --window-control-hover-minimize: #eec42b;
+    --window-control-hover-maximize: #62d43f;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --window-head-color: #fff;
+        --window-head-bgcolor: #383838;
+        --window-body-bgcolor: #2c2c2c;
+        --window-footer-bgcolor: #2c2c2c;
+
+        --window-control-close: #ee3a30;
+        --window-control-minimize: #eec42b;
+        --window-control-maximize: #62d43f;
+
+        --window-control-hover-close: red;
+        --window-control-hover-minimize: darkorange;
+        --window-control-hover-maximize: #42f30d;
+    }
+}
+
+
+/* ############## WINDOW ############## */
+
+/* make main fill the window */
+app-window {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 120px;
+    min-height: 120px;
+}
+
+app-window > main {
+    flex: 1;
+}
+
+
+/* disable pointer events when dragging to avoid any interaction with iframe & etc */
+app-window.dragging > main {
+    pointer-events: none;
+}
+
+/* disable pointer globally */
+body.window-dragging iframe {
+    pointer-events: none;
+}
+
+
+/* ############## WINDOW HEAD ############## */
+
+app-window > header {
+    cursor: grab;
+    user-select: none;
+
+    border-radius: 8px 8px 0 0;  /* ROUND TOP CORNERS */
+    color: var(--window-head-color);
+    background-color: var(--window-head-bgcolor);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 30px;
+}
+
+app-window.dragging > header {
+    cursor: grabbing;
+}
+
+app-window > header .title {
+    flex: 2;
+    margin: 0;
+    height: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ############## CONTROLS ############## */
+
+app-window > header .controls {
+    padding: 0 8px;
+
+    /* buttons align */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* size */
+    width: 60px;
+
+    cursor: default;
+}
+
+app-window > header > .controls > button {
+    height: 15px;
+    width: 15px;
+
+    border: none;
+    border-radius: 50%;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ------  CONTROL BACKGROUND ------ */
+app-window > header .close {
+    cursor: default;
+    background-color: var(--window-control-close);
+}
+
+app-window > header .minimize {
+    cursor: default;
+    background-color: var(--window-control-minimize);
+}
+
+app-window > header .maximize {
+    /* cursor: nesw-resize; */
+    cursor: default;
+    background-color: var(--window-control-maximize);
+}
+
+/* HOVER */
+app-window > header .close:hover {
+    background-color: var(--window-control-hover-close);
+}
+
+app-window > header .minimize:hover {
+    background-color: var(--window-control-hover-minimize);
+}
+
+app-window > header .maximize:hover {
+    background-color: var(--window-control-hover-maximize);
+}
+
+
+
+/* ############## WINDOW MAIN ############## */
+
+app-window > main {
+    padding: 10px;
+    background-color: var(--window-body-bgcolor);
+}
+
+
+/* ############## WINDOW FOOTER ############## */
+
+app-window > footer {
+    height: 10px;
+    background-color: var(--window-footer-bgcolor);
+    border-radius: 0 0 8px 8px;  /* ROUND BOTTOM CORNERS */
+}

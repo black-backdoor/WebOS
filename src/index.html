@@ -16,6 +16,8 @@
 
     <!-- SCRIPT -->
     <script src="/taskbar.js"></script>
+    <script src="/connection.js"></script>
+    <script src="/sound.js"></script>
 </head>
 <body>
     <!-- DESKTOP -->
@@ -39,6 +41,44 @@
 
         <section class="menu">
             <!-- MENU -->
+            <div class="internet-access icon"
+                title="Winternet&#013No connection"
+                online-title="WiFi-Name&#013Internet access"
+                offline-title="No internet access&#013No connections available"
+                >
+                <!-- 
+                    title = default,
+                    online-title = when connected,
+                    offline-title = when not connected
+                -->
+
+
+                <img alt="Wifi"
+                    src="/icon/connection/wifi.svg"
+                    src-yes="/icon/connection/wifi.svg"
+                    src-no="/icon/connection/no-wifi.svg"
+                >
+                <!-- src = default,
+                     src-yes = when connected,
+                     src-no = when not connected
+                -->
+            </div>
+            <div class="speaker icon" title="Speakers (RTalk(L) Audio): 0%"><img
+                alt="speaker"
+                src="/icon/sound/speaker.svg"
+                src-no="/icon/sound/speaker-muted.svg"
+                src-1="/icon/sound/speaker-1.svg"
+                src-2="/icon/sound/speaker-2.svg"
+                src-3="/icon/sound/speaker-3.svg"
+                speaker-levels="3">
+                <!-- if the number of src-n values are changed, the `speaker-levels` attribute must be changed
+                     each src-n value is a different volume level -> currently 3 levels
+                 -->
+            </div>
+            <div class="battery-status icon" title="Battery status: 50% remaining">
+                <img src="/icon/power/battery.svg" alt="battery">
+                <!-- TODO: SCRIPT FOR SHOWING PERCENTAGE IN TITLE -->
+            </div>
         </section>
 
         <section class="time" title="Tuesday, 30. January 2024">

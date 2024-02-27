@@ -3,14 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Phone Preview | WebOS</title>
 
     <link rel="stylesheet" href="/phone/style.css" type="text/css" />
+    <script src="/phone/redirect.js"></script>
 
     <!-- ICONS -->
     <link rel="icon" href="/icon/favicon.svg" type="image/svg">
 </head>
 <body>
-    <h1>Phone</h1>
+    <div class="sidenav">
+        <nav class="menu">
+            <a class="active" href="/phone/" title="Phone"><img src="/icon/devices/smartphone.svg" alt="Phone"></a>
+            <a href="#" title="Tablet"><img src="/icon/devices/tablet.svg" alt="Tablet"></a>
+        </nav>
+        <nav class="side-actions">
+            <a href="#" title="Back"><img src="/icon/navigation/mobile/back.svg" alt="Back"></a>
+        </nav>
+    </div>
+    <main>
+        <div class="phone">
+            <div class="shell">
+                <div class="speaker" title="Speaker"></div>
+                <div class="display">
+                    <div class="camera" title="Camera"><div class="dot"></div></div>
+                    <iframe src="/" title="description"></iframe> 
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="volume" title="Volume"></div>
+                <div class="power" title="Power"></div>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>

@@ -1,0 +1,92 @@
+{
+    "name": "WebOS",
+    "description": "A web-based operating system that looks and feels like a real desktop environment.",
+    "short_name": "WebOS",
+    "id": "4200020230922",
+    "lang": "en",
+
+    "display": "fullscreen",
+    "display_override": [
+        "standalone",
+        "minimal-ui",
+        "browser",
+        "window-controls-overlay"
+    ],
+    "orientation": "any",
+    
+    "dir": "ltr",
+    "start_url": "/about/",
+    "scope": "/",
+
+    "categories": [
+        "entertainment",
+        "games",
+        "music",
+        "navigation",
+        "productivity",
+        "security",
+        "utilities"
+    ],
+
+    "shortcuts": [
+        {
+            "name": "WebOS",
+            "url": "/",
+            "description": "Experience WebOS",
+            "icons": [
+                {
+                    "src": "/icon/favicon.png",
+                    "sizes": "196x196",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "About",
+            "url": "/about/",
+            "description": "Learn more about the WebOS project."
+        },
+        {
+            "name": "Phone",
+            "url": "/phone/",
+            "description": "Experience WebOS on Desktop like you would on a Phone",
+            "icons": [
+                {
+                    "src": "/icon/devices/smartphone.png",
+                    "sizes": "196x196",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Tablet",
+            "url": "/tablet/",
+            "description": "Experience WebOS on Desktop like you would on a Tablet",
+            "icons": [
+                {
+                    "src": "/icon/devices/tablet.png",
+                    "sizes": "196x196",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ],
+
+    "background_color": "#1c1c1c",
+    "theme_color": "#1c1c1c",
+
+    "icons": [
+        {
+            "src": "/pwa/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/pwa/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+
+    "prefer_related_applications": false
+}

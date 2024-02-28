@@ -171,6 +171,44 @@ app-window > footer {
 
 
 
+/* ############## WINDOW DEFAULTS ############## */
+
+/* --------------- IFRAME (Webbrowser) --------------- */
+app-window > main iframe {
+    height: 100%;
+    width: 100%;
+
+    border: none;
+    background-color: #fdfdfd;
+}
+
+@media (prefers-color-scheme: light) {
+    app-window > main iframe {
+        border: 1px solid #e0e0e0;
+    }
+}
+
+
+app-window:has(iframe) {
+    --window-body-bgcolor: #494949;
+    --window-footer-bgcolor: #494949;
+}
+
+@media (prefers-color-scheme: light) {
+    app-window:has(iframe) {
+        --window-body-bgcolor: #fdfdfd ;
+        --window-footer-bgcolor: #fdfdfd;
+    }
+}
+
+
+    
+
+
+
+
+
+
 
 /* ############## WINDOW OPTIONS ############## */
 

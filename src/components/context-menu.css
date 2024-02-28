@@ -110,27 +110,27 @@
 /* ? this is a fix for that */
 
 /* width */
-::-webkit-scrollbar {
+#context-menu::-webkit-scrollbar {
     cursor: pointer;
     width: 10px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+#context-menu::-webkit-scrollbar-track {
     cursor: pointer;
     border-radius: 10px;
     background: var(--menu-background);
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+#context-menu::-webkit-scrollbar-thumb {
     cursor: pointer;
     background: #888;
     border-radius: 10px;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+#context-menu::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
     background: #555;
 }

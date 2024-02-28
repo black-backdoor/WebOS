@@ -1,9 +1,9 @@
 #context-menu {
     --text-color: #eee;
-    --menu-background: #1b1a1a;
+    --menu-background: #2c2c2c;
     --menu-border: transparent;
-    --hover-color: #343434;
-    --separator-color: #343434;
+    --hover-color: #383838;
+    --separator-color: #383838;
 }
 
 @media (prefers-color-scheme: light){
@@ -14,6 +14,15 @@
         --hover-color: #e7e7e7;
         --separator-color: var(--menu-border);
     }
+}
+
+/* alternative dark theme */
+#context-menu.night {
+    --text-color: #eee;
+    --menu-background: #1b1a1a;
+    --menu-border: transparent;
+    --hover-color: #343434;
+    --separator-color: #343434;
 }
 
 

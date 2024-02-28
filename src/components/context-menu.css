@@ -135,3 +135,7 @@
     background: #555;
 }
 
+/* ? the 0.8px of the border makes the scrollbar feel off -> remove it */
+#context-menu {
+    border-right: 0;
+}

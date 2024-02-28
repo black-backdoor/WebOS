@@ -50,11 +50,7 @@ class ProgressBar extends HTMLElement {
     constructor() {
         super();
 
-        // #007bff == is blue
-        this.color = this.getAttribute('bar-color') || '#007bff';
         this.bar_style = this.getAttribute('bar-style') || 'round';
-
-        console.log(this.color, this.bar_style);
 
         this.attachShadow({ mode: 'open' });
         this.render();
@@ -71,13 +67,6 @@ class ProgressBar extends HTMLElement {
     /* SET & GET progressbar percent */
     get percent() {
         const percent = this.getAttribute('percent');
-
-        // basic validation
-        if(isNaN(percent)) return 0;
-        if(percent < 0) return 0;
-        if(percent > 100) return 100;
-
-
         return Number(percent);
     }
 
@@ -88,6 +77,12 @@ class ProgressBar extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         if(name === 'percent') {
+            
+            // basic validation -> before setting the value
+            if(isNaN(newValue)) newValue = 0;
+            if(newValue < 0) newValue = 0;
+            if(newValue > 100) newValue = 100;
+
             this.shadowRoot.querySelector('.fill').style.width = `${newValue}%`;
         }
     }

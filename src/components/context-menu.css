@@ -1,12 +1,39 @@
 #context-menu {
+    --text-color: #eee;
+    --menu-background: #1b1a1a;
+    --menu-border: transparent;
+    --hover-color: #343434;
+    --separator-color: #343434;
+}
+
+@media (prefers-color-scheme: light){
+    #context-menu {
+        --text-color: #6b7280;
+        --menu-background: white;
+        --menu-border: #d1d5db;
+        --hover-color: #f3f4f6;
+        --separator-color: var(--menu-border);
+    }
+}
+
+
+#context-menu {
+    cursor: not-allowed;
     user-select: none;
 
+    /* position */
     position: fixed;
     z-index: 9999;
     width: 200px;
 
-    background-color: #1b1a1a;
-    border-radius: 5px;
+    /* border */
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0.5rem;
+    border-color: var(--menu-border);
+
+    padding: 8px;
+    background-color: var(--menu-background);
 
     transform: scale(0);
     transform-origin: top left;
@@ -17,22 +44,8 @@
     transition: transform 200ms ease-in-out;
 }
 
-
-
-
-#context-menu.scroll {
-    height: 40vh;
-    overflow-y: scroll;
-}
-
-
 /*  NO ANIMATION 
     #context-menu {
-        position: fixed;
-        z-index: 9999;
-        width: 150px;
-        background-color: #1b1a1a;
-        border-radius: 5px;
         display: none;
     }
 
@@ -41,19 +54,28 @@
     }
 */
 
-
-
 #context-menu .item {
     padding: 8px 10px;
     font-size: 15px;
-    color: #eee;
+    color: var(--text-color);
     cursor: pointer;
     border-radius: inherit;
 }
 
 #context-menu .item:hover {
-    background-color: #343434;
+    background-color: var(--hover-color);
+}
+
+#context-menu .separator {
+    height: 1px;
+    margin: 8px 0;
+    background-color: var(--separator-color);
 }
 
 
+/* SCROLL BAR */
+#context-menu.scroll {
+    height: 40vh;
+    overflow-y: scroll;
+}
 

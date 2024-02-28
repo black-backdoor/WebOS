@@ -99,6 +99,6 @@
 
 /* ------------- SCROLL BAR ------------- */
 #context-menu.scroll {
-    height: 40vh;
+    height: 333px;
     overflow-y: scroll;
 }

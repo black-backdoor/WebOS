@@ -5,6 +5,7 @@ class ProgressBar extends HTMLElement {
             :host {
                 /* PROGRESSBAR SPECIFIC COLORS */
                 --progressbar-color: #007bff;
+                --progressbar-bgcolor: transparent;
                 --progressbar-height: 1rem;
                 --progressbar-border-color: transparent;
                 --progressbar-border-radius: ${this.bar_style === 'round' ? '1rem' : '0rem'};
@@ -22,6 +23,7 @@ class ProgressBar extends HTMLElement {
                 height: var(--progressbar-height);
                 border: 1px solid var(--progressbar-border-color);
                 border-radius: var(--progressbar-border-radius);
+                background-color: var(--progressbar-bgcolor);
             }
             
             .fill {
@@ -77,7 +79,7 @@ class ProgressBar extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         if(name === 'percent') {
-            
+
             // basic validation -> before setting the value
             if(isNaN(newValue)) newValue = 0;
             if(newValue < 0) newValue = 0;

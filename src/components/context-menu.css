@@ -102,3 +102,36 @@
     height: 333px;
     overflow-y: scroll;
 }
+
+
+
+/* ------ SCROLL BAR FIX FOR CHROME ------ */
+/* ? chrome scrollbar is still the old blocky one */
+/* ? this is a fix for that */
+
+/* width */
+::-webkit-scrollbar {
+    cursor: pointer;
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    cursor: pointer;
+    border-radius: 10px;
+    background: var(--menu-background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+    background: #555;
+}
+

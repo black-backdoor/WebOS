@@ -6,7 +6,7 @@
     --separator-color: #383838;
 }
 
-@media (prefers-color-scheme: light){
+@media (prefers-color-scheme: light) {
     #context-menu {
         --text-color: #6b7280;
         --menu-background: white;
@@ -63,18 +63,25 @@
     }
 */
 
+/* ITEMS */
 #context-menu .item {
     padding: 8px 10px;
     font-size: 15px;
     color: var(--text-color);
+
     cursor: pointer;
     border-radius: inherit;
+
+    display: flex;
+    align-items: center;
 }
 
 #context-menu .item:hover {
     background-color: var(--hover-color);
 }
 
+
+/* SEPARATOR */
 #context-menu .separator {
     height: 1px;
     margin: 8px 0;
@@ -82,9 +89,16 @@
 }
 
 
-/* SCROLL BAR */
+/* ICONS */
+#context-menu .item img,
+#context-menu .item svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* ------------- SCROLL BAR ------------- */
 #context-menu.scroll {
     height: 40vh;
     overflow-y: scroll;
 }
-

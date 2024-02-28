@@ -61,13 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         normalizePosition(mouseX, mouseY);
 
-
-        // ? if right-clicked again, the context menu will close and reopen at the new position.
-        contextMenu.classList.remove('visible');
-
-        setTimeout(() => {
-            contextMenu.classList.add('visible');
-        });
+        contextMenu.classList.add('visible');
     });
 
 
@@ -77,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
             This is done by checking if the target's offsetParent is the context menu.
         */
         
-        if (e.target.offsetParent !== contextMenu) {
+        if (e.target.offsetParent !== contextMenu && e.target !== contextMenu) {
             contextMenu.classList.remove('visible');
         }
     });

@@ -77,7 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add mousedown event listeners to each window to start tracking cursor movement
         // the event listeners are added to the header of the window
         const windowHead = windowElement.querySelector('app-window > header');
+        const windowControls = windowElement.querySelector('app-window > header > .controls');
         windowHead.addEventListener('mousedown', function (e) {
+            // don't drag the window if the user clicks on the controls (close, minimize, maximize
+            if (e.target == windowControls){ return; }
+            if (windowControls.contains(e.target)) { return; }
+
             // add dragging class to the window
             windowElement.classList.add('dragging');
             document.body.classList.add('window-dragging')
@@ -117,7 +122,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const windows = document.querySelectorAll('app-window');
     windows.forEach(function (windowElement) {
         const windowHead = windowElement.querySelector('app-window > header');
+        const windowControls = windowElement.querySelector('app-window > header > .controls');            
         windowHead.addEventListener('touchstart', function (e) {
+            // don't drag the window if the user clicks on the controls (close, minimize, maximize
+            if (e.target == windowControls){ return; }
+            if (windowControls.contains(e.target)) { return; }
+
             // add dragging class to the window
             windowElement.classList.add('dragging');
             document.body.classList.add('window-dragging')

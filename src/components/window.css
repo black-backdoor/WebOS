@@ -105,6 +105,7 @@ app-window > header .controls {
 
     /* size */
     width: 60px;
+    height: 100%;
 
     cursor: default;
 }
@@ -168,6 +169,44 @@ app-window > footer {
     background-color: var(--window-footer-bgcolor);
     border-radius: 0 0 8px 8px;  /* ROUND BOTTOM CORNERS */
 }
+
+
+
+/* ############## WINDOW DEFAULTS ############## */
+
+/* --------------- IFRAME (Webbrowser) --------------- */
+app-window > main iframe {
+    height: 100%;
+    width: 100%;
+
+    border: none;
+    background-color: #fdfdfd;
+}
+
+@media (prefers-color-scheme: light) {
+    app-window > main iframe {
+        border: 1px solid #e0e0e0;
+    }
+}
+
+
+app-window:has(iframe) {
+    --window-body-bgcolor: #494949;
+    --window-footer-bgcolor: #494949;
+}
+
+@media (prefers-color-scheme: light) {
+    app-window:has(iframe) {
+        --window-body-bgcolor: #fdfdfd ;
+        --window-footer-bgcolor: #fdfdfd;
+    }
+}
+
+
+    
+
+
+
 
 
 

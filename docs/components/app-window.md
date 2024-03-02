@@ -23,4 +23,8 @@ document.querySelector('app-window').window_title;
 ```
 
 
+## Styling
+> NOTE: The app-window contains some default styling. You can override the default styling.
 
+The app-window applies default styling to itself and its children when these elements are inside the app-window.
+- **iframe** (changes window background & iframe size)

@@ -69,98 +69,70 @@ class AppWindow extends HTMLElement {
 customElements.define('app-window', AppWindow);
 
 
-
-// DRAGGING WINDOWS (MOUSE)
 document.addEventListener('DOMContentLoaded', function() {
     const windows = document.querySelectorAll('app-window');
     windows.forEach(function (windowElement) {
-        // Add mousedown event listeners to each window to start tracking cursor movement
-        // the event listeners are added to the header of the window
+        // DRAGGING WINDOWS (MOUSE) / (TOUCH)
         const windowHead = windowElement.querySelector('app-window > header');
         const windowControls = windowElement.querySelector('app-window > header > .controls');
-        windowHead.addEventListener('mousedown', function (e) {
-            // don't drag the window if the user clicks on the controls (close, minimize, maximize
-            if (e.target == windowControls){ return; }
-            if (windowControls.contains(e.target)) { return; }
+        windowHead.addEventListener('mousedown', startDragging);
+        windowHead.addEventListener('touchstart', startDragging);
+
+        function startDragging(e) {
+            // don't drag the window if the user clicks on the controls (close, minimize, maximize)
+            if (e.target == windowControls || windowControls.contains(e.target)) {
+                return;
+            }
 
             // add dragging class to the window
             windowElement.classList.add('dragging');
-            document.body.classList.add('window-dragging')
+            document.body.classList.add('window-dragging');
 
             // Calculate the initial offset from the top-left corner of the window
-            let offsetX = e.clientX - windowElement.getBoundingClientRect().left;
-            let offsetY = e.clientY - windowElement.getBoundingClientRect().top;
-
-            // Add a mousemove event listener to update the window position
-            function moveWindow(e) {
-                // Set the window position based on the cursor position
-                windowElement.style.left = e.clientX - offsetX + 'px';
-                windowElement.style.top = e.clientY - offsetY + 'px';
+            let offsetX, offsetY;
+            if (e.type === 'mousedown') {
+                offsetX = e.clientX - windowElement.getBoundingClientRect().left;
+                offsetY = e.clientY - windowElement.getBoundingClientRect().top;
+            } else if (e.type === 'touchstart') {
+                offsetX = e.touches[0].clientX - windowElement.getBoundingClientRect().left;
+                offsetY = e.touches[0].clientY - windowElement.getBoundingClientRect().top;
             }
 
-            // Add a mouseup event listener to stop tracking cursor movement
+            // Add a move event listener to update the window position
+            function moveWindow(e) {
+                let clientX, clientY;
+                if (e.type === 'mousemove') {
+                    clientX = e.clientX;
+                    clientY = e.clientY;
+                } else if (e.type === 'touchmove') {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                }
+
+                // Set the window position based on the cursor position
+                windowElement.style.left = clientX - offsetX + 'px';
+                windowElement.style.top = clientY - offsetY + 'px';
+            }
+
+            // Add a stop event listener to stop tracking cursor movement
             function stopMoving() {
                 windowElement.classList.remove('dragging');
-                document.body.classList.remove('window-dragging')
+                document.body.classList.remove('window-dragging');
 
                 // Remove the event listeners when the mouse button is released
                 document.removeEventListener('mousemove', moveWindow);
                 document.removeEventListener('mouseup', stopMoving);
-            }
-
-            // Attach the event listeners
-            document.addEventListener('mousemove', moveWindow);
-            document.addEventListener('mouseup', stopMoving);
-        });
-    });
-});
-
-
-
-// DRAGGING WINDOWS (TOUCH)
-document.addEventListener('DOMContentLoaded', function() {
-    const windows = document.querySelectorAll('app-window');
-    windows.forEach(function (windowElement) {
-        const windowHead = windowElement.querySelector('app-window > header');
-        const windowControls = windowElement.querySelector('app-window > header > .controls');            
-        windowHead.addEventListener('touchstart', function (e) {
-            // don't drag the window if the user clicks on the controls (close, minimize, maximize
-            if (e.target == windowControls){ return; }
-            if (windowControls.contains(e.target)) { return; }
-
-            // add dragging class to the window
-            windowElement.classList.add('dragging');
-            document.body.classList.add('window-dragging')
-            
-            // Calculate the initial offset from the top-left corner of the window
-            let offsetX = e.touches[0].clientX - windowElement.getBoundingClientRect().left;
-            let offsetY = e.touches[0].clientY - windowElement.getBoundingClientRect().top;
-            
-
-            // Add a mousemove event listener to update the window position
-            function moveWindow(e) {
-                // Set the window position based on the cursor position
-                windowElement.style.left = e.touches[0].clientX - offsetX + 'px';
-                windowElement.style.top = e.touches[0].clientY - offsetY + 'px';
-            }
-
-            // Add a mouseup event listener to stop tracking cursor movement
-            function stopMoving() {
-                windowElement.classList.remove('dragging');
-                document.body.classList.remove('window-dragging')
-
-                // Remove the event listeners when the mouse button is released
                 document.removeEventListener('touchmove', moveWindow);
                 document.removeEventListener('touchend', stopMoving);
             }
 
             // Attach the event listeners
+            document.addEventListener('mousemove', moveWindow);
+            document.addEventListener('mouseup', stopMoving);
             document.addEventListener('touchmove', moveWindow);
             document.addEventListener('touchend', stopMoving);
-        });
+        }
     });
 });
-
-
 
 

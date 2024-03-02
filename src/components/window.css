@@ -159,6 +159,7 @@ app-window > header .maximize:hover {
 app-window > main {
     padding: 10px;
     background-color: var(--window-body-bgcolor);
+    overflow: hidden; /* stop content from overflowing */
 }
 
 

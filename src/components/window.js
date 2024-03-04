@@ -70,6 +70,7 @@ customElements.define('app-window', AppWindow);
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    const desktop = document.querySelector("#desktop");
     const windows = document.querySelectorAll('app-window');
     windows.forEach(function (windowElement) {
         // DRAGGING WINDOWS (MOUSE) / (TOUCH)
@@ -110,8 +111,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 // Set the window position based on the cursor position
-                windowElement.style.left = clientX - offsetX + 'px';
-                windowElement.style.top = clientY - offsetY + 'px';
+                let x = clientX - offsetX;
+                let y = clientY - offsetY;
+
+                // don't let the window go outside the screen
+                if(x < 0) x = 0;  // don't let the window go outside the left edge of the screen
+                if(y < 0) y = 0;  // don't let the window go outside the top edge of the screen
+
+                if(y > (desktop.offsetHeight - 50)) y = desktop.offsetHeight - 50;  // don't let the window go outside the bottom edge of the screen
+                if(x > (desktop.offsetWidth - 100)) x = desktop.offsetWidth - 100;  // don't let the window go outside the right edge of the screen
+
+                windowElement.style.left = x + 'px';
+                windowElement.style.top = y + 'px';
             }
 
             // Add a stop event listener to stop tracking cursor movement
@@ -124,6 +135,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.removeEventListener('mouseup', stopMoving);
                 document.removeEventListener('touchmove', moveWindow);
                 document.removeEventListener('touchend', stopMoving);
+
+                saveWindows();
             }
 
             // Attach the event listeners
@@ -136,3 +149,46 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+// STORING WINDOW POSITIONS AND SIZES
+function saveWindows() {
+    let windowsStorage = [];
+
+    const windows = document.querySelectorAll('app-window');
+    
+    windows.forEach(function (windowElement) {
+        // save the position and size of each window
+        windowsStorage.push({ 
+            x: windowElement.style.left,
+            y: windowElement.style.top,
+            width: windowElement.style.width,
+            height: windowElement.style.height
+        });
+    });
+
+    // save the windows to local storage
+    sessionStorage.setItem('windows', JSON.stringify(windowsStorage));
+}
+
+
+function loadWindows() {
+    let windowsStorage = sessionStorage.getItem('windows') || "";
+    if (windowsStorage == "") { return; }
+
+    windowsStorage = JSON.parse(windowsStorage);
+    if (windowsStorage.length == 0) { return; }
+
+    const windows = document.querySelectorAll('app-window');
+
+    windowsStorage.forEach(function (window) {
+        const index = windowsStorage.indexOf(window);
+        windows[index].style.left = window.x;
+        windows[index].style.top = window.y;
+        windows[index].style.width = window.width;
+        windows[index].style.height = window.height;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadWindows();
+});

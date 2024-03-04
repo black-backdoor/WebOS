@@ -59,22 +59,21 @@
 </head>
 <body>
     <div id="context-menu">
-        <div class="item" onclick="window.history.back()">
-            <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            Go Back
+        <div class="vertical-section">
+            <div class="item vertical" onclick="window.history.back()">
+                <img alt="back" src="/icon/navigation/back.svg">
+            </div>
+            <div class="item vertical" onclick="window.location.reload()">
+                <img alt="back" src="/icon/navigation/reload.svg">
+            </div>
+            <div class="item vertical" onclick="window.history.forward()">
+                <img alt="back" src="/icon/navigation/forward.svg">
+            </div>
+            <div class="item vertical" onclick="window.location.href='/';">
+                <img alt="back" src="/icon/navigation/home.svg">
+            </div>
         </div>
-        <div class="item" onclick="window.history.forward()">Go Forward</div>
-        <div class="item" onclick="window.location.reload()">Reload</div>
-        <div class="item" onclick="window.location.href='/';">Home</div>
         <div class="separator"></div>
-        <div class="item">
-            <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            Zoom In
-        </div>
-        <div class="item">
-            <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            Zoom Out
-        </div>
         <div class="item" onclick="document.documentElement.requestFullscreen();">
             <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             Full Screen

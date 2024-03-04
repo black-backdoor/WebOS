@@ -135,6 +135,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.removeEventListener('mouseup', stopMoving);
                 document.removeEventListener('touchmove', moveWindow);
                 document.removeEventListener('touchend', stopMoving);
+
+                saveWindows();
             }
 
             // Attach the event listeners
@@ -147,3 +149,46 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+// STORING WINDOW POSITIONS AND SIZES
+function saveWindows() {
+    let windowsStorage = [];
+
+    const windows = document.querySelectorAll('app-window');
+    
+    windows.forEach(function (windowElement) {
+        // save the position and size of each window
+        windowsStorage.push({ 
+            x: windowElement.style.left,
+            y: windowElement.style.top,
+            width: windowElement.style.width,
+            height: windowElement.style.height
+        });
+    });
+
+    // save the windows to local storage
+    sessionStorage.setItem('windows', JSON.stringify(windowsStorage));
+}
+
+
+function loadWindows() {
+    let windowsStorage = sessionStorage.getItem('windows') || "";
+    if (windowsStorage == "") { return; }
+
+    windowsStorage = JSON.parse(windowsStorage);
+    if (windowsStorage.length == 0) { return; }
+
+    const windows = document.querySelectorAll('app-window');
+
+    windowsStorage.forEach(function (window) {
+        const index = windowsStorage.indexOf(window);
+        windows[index].style.left = window.x;
+        windows[index].style.top = window.y;
+        windows[index].style.width = window.width;
+        windows[index].style.height = window.height;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadWindows();
+});

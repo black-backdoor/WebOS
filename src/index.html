@@ -13,6 +13,9 @@
     <script defer src="/components/window.js"></script>
     <link rel="stylesheet" href="/components/window.css" type="text/css" />
 
+    <script src="/components/context-menu.js"></script>
+    <link rel="stylesheet" href="/components/context-menu.css" type="text/css" />
+    
     <script src="/components/progress-bar.js"></script>
 
     
@@ -57,6 +60,32 @@
     <link rel="stylesheet" href="/apps/about.css" type="text/css" />
 </head>
 <body>
+    <div id="context-menu">
+        <div class="vertical-section">
+            <div class="item vertical" onclick="window.history.back()">
+                <img alt="back" src="/icon/navigation/back.svg">
+            </div>
+            <div class="item vertical" onclick="window.history.forward()">
+                <img alt="forward" src="/icon/navigation/forward.svg">
+            </div>
+            <div class="item vertical" onclick="window.location.reload()">
+                <img alt="reload" src="/icon/navigation/reload.svg">
+            </div>
+            <div class="item vertical" onclick="window.location.href='/about/';">
+                <img alt="home" src="/icon/navigation/home.svg">
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="item" onclick="document.documentElement.requestFullscreen();">
+            <img alt="fullscreen" src="/icon/fullscreen.svg">
+            Full Screen
+        </div>
+        <div class="item" onclick="document.exitFullscreen();">
+            <img alt="minimize" src="/icon/minimized.svg">
+            Minimize
+        </div>
+    </div>
+
     <!-- DESKTOP -->
     <main id="desktop">
         <h1>WebOS</h1>

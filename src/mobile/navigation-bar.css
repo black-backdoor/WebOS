@@ -28,7 +28,7 @@
 /* position */
 .mobile#navigation-bar {
     display: none;
-    z-index: 500;
+    z-index: 5000;
 
     position: absolute;
     bottom: 0;

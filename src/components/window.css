@@ -50,6 +50,10 @@ app-window > main {
     flex: 1;
 }
 
+/* -------------- DRAGGING -------------- */
+app-window.dragging {
+    z-index: 4000;
+}
 
 /* disable pointer events when dragging to avoid any interaction with iframe & etc */
 app-window.dragging > main {
@@ -64,6 +68,7 @@ body.window-dragging iframe {
 body.context-menu-open iframe {
     pointer-events: none;
 }
+
 
 
 /* ############## WINDOW HEAD ############## */

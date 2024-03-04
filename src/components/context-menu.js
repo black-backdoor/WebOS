@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
         normalizePosition(mouseX, mouseY);
 
         contextMenu.classList.add('visible');
+        document.body.classList.add('context-menu-open')
     });
 
 
@@ -73,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (e.target.offsetParent !== contextMenu && e.target !== contextMenu) {
             contextMenu.classList.remove('visible');
+            document.body.classList.remove('context-menu-open')
         }
     });
 });

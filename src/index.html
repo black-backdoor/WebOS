@@ -15,6 +15,8 @@
 
     <script src="/components/context-menu.js"></script>
     <link rel="stylesheet" href="/components/context-menu.css" type="text/css" />
+    
+    <script src="/components/progress-bar.js"></script>
 
     
     <!-- STYLE -->
@@ -90,8 +92,10 @@
         <app-window class="about" window-title="About">
             <iframe src="/about/"></iframe>
         </app-window>
-        <app-window window-title="1" style="color: gray; height: 5vh; width: 7vw;">
-            <h1>Test</h1>
+        <app-window window-title="1" style="color: gray; height: 25vh; width: 20vw;">
+            <progress-bar percent="82" style="--progressbar-color: #fff;"></progress-bar>
+            <progress-bar percent="63"></progress-bar>
+            <progress-bar percent="49" style="--progressbar-color: #fff;"></progress-bar>
             <p> is a test.</p>
         </app-window>
         <app-window window-title="Window 2" style="color: gray; height: 20vh; width: 20vw;">

@@ -81,6 +81,17 @@
 }
 
 
+/* VERTICAL MENU */
+#context-menu .item.vertical {
+    width: 25%;
+}
+
+#context-menu .vertical-section {
+    display: flex;
+}
+
+
+
 /* SEPARATOR */
 #context-menu .separator {
     height: 1px;

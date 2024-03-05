@@ -130,9 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
             windowElement.style.zIndex = zIndexCounter++;
-            console.log("z-index: " + zIndexCounter);
             if(zIndexCounter > (windows.length * 2)) {
-                console.log("resetting z-index");
                 resetZIndex();
             }
 

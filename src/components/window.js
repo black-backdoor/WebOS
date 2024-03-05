@@ -69,6 +69,35 @@ class AppWindow extends HTMLElement {
 customElements.define('app-window', AppWindow);
 
 
+
+
+
+
+// WINDOW OVERLAP
+var zIndexCounter = 1;
+
+function resetZIndex() {
+    const elements = document.querySelectorAll('app-window');
+    zIndexCounter = 0;
+
+    elementsDict = {};
+    elements.forEach(item => {
+        elementsDict[item.style.zIndex] = item;
+    });
+
+    const sortedElements = Object.entries(elementsDict)
+        .sort((a, b) => b[0] - a[0])
+        .reduce((acc, [key, value]) => {
+            acc[key] = value;
+            return acc;
+        }, {});
+
+
+    for (const [key, value] of Object.entries(sortedElements)) {
+        value.style.zIndex = zIndexCounter++;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const desktop = document.querySelector("#desktop");
     const windows = document.querySelectorAll('app-window');
@@ -97,6 +126,14 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (e.type === 'touchstart') {
                 offsetX = e.touches[0].clientX - windowElement.getBoundingClientRect().left;
                 offsetY = e.touches[0].clientY - windowElement.getBoundingClientRect().top;
+            }
+
+
+            windowElement.style.zIndex = zIndexCounter++;
+            console.log("z-index: " + zIndexCounter);
+            if(zIndexCounter > (windows.length * 2)) {
+                console.log("resetting z-index");
+                resetZIndex();
             }
 
             // Add a move event listener to update the window position
@@ -192,3 +229,8 @@ function loadWindows() {
 document.addEventListener('DOMContentLoaded', function() {
     loadWindows();
 });
+
+
+
+
+

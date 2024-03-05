@@ -37,8 +37,8 @@ class ProgressBar extends HTMLElement {
 
     template = () => {
         return `
-        <div class="bar" title="${this.percent}%">
-            <div class="fill"></div>
+        <div class="bar" title="${this.getAttribute('percent')}%">
+            <div class="fill" style="width: ${this.getAttribute('percent')}"></div>
         </div>
         `;
     }
@@ -85,6 +85,8 @@ class ProgressBar extends HTMLElement {
             if(newValue < 0) newValue = 0;
             if(newValue > 100) newValue = 100;
 
+            console.log(newValue);
+            this.render();
             this.shadowRoot.querySelector('.fill').style.width = `${newValue}%`;
         }
     }

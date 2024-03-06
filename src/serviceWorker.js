@@ -23,11 +23,11 @@ const limitCacheSize = (name, size) => {
 
 /* ----------- GET & CACHE OFFLINE PAGE ----------- */
 
-const dynamicCacheName = 'site-dynamic-v1.4.0';
+const dynamicCacheName = 'site-dynamic-v1.2.0';
 
 
 /* CACHE for app assets */
-const appCacheName = "app-cache-v1.4.0";
+const appCacheName = "app-cache-v1.2.0";
 const appCacheAssets = [
     "/",
     "/index.html",
@@ -36,7 +36,7 @@ const appCacheAssets = [
 
 
 /* CACHE for offline page */
-const offlineCacheName = "offline-cache-v1.4.0";
+const offlineCacheName = "offline-cache-v1.2.0";
 const offlinePageAssets = [
     "/about/",
     "/about/index.html",

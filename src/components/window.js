@@ -128,6 +128,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 offsetY = e.touches[0].clientY - windowElement.getBoundingClientRect().top;
             }
 
+            if ( windowElement.classList.contains('fullscreen') ) { 
+                // ! order of these two lines is important !
+                // ? we need the width of the window in non-fullscreen mode since else the windowElement.offsetWidth will be the width of the screen
+                windowElement.classList.remove('fullscreen');
+                offsetX = (windowElement.offsetWidth / 2);
+            }
 
             windowElement.style.zIndex = zIndexCounter++;
             if(zIndexCounter > (windows.length * 2)) {

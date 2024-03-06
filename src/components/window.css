@@ -228,10 +228,10 @@ app-window:has(iframe) {
 
 /* -------------- FULLSCREEN -------------- */
 app-window.fullscreen {
-    top: 0px;
-    left: 0px ;
-    width: 100vw !important;
-    height: calc(100vh - var(--taskbar-height)) !important;
+    top: 0px !important;
+    left: 0px !important;
+    width: 100% !important;
+    height: var(--desktop-height) !important;
 }
 
 app-window.fullscreen > header {

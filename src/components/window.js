@@ -250,6 +250,10 @@ function getFirstAppWindowParent(element) {
 
 function toggleFullScreen(element) {
     const appWindowParent = getFirstAppWindowParent(element);
+
+    // Set the z-index of the window to the highest value
+    appWindowParent.style.zIndex = zIndexCounter++;
+    
     if (appWindowParent) {
         if (appWindowParent.classList.contains('fullscreen')) {
             appWindowParent.classList.remove('fullscreen');

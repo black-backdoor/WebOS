@@ -1,5 +1,13 @@
 class ProgressBar extends HTMLElement {
-    css = () => {
+    constructor() {
+        super();
+        
+        this.bar_style = this.getAttribute('bar-style') || 'round';
+        this.attachShadow({ mode: 'open' });
+        this.render();
+    }
+
+    css() {
         return `
             /* COLORS */
             :host {
@@ -35,27 +43,28 @@ class ProgressBar extends HTMLElement {
         `;
     }
 
-    template = () => {
+    template() {
         return `
-        <div class="bar" title="${this.percent}%">
-            <div class="fill"></div>
-        </div>
+            <div class="bar" title="${this.getAttribute('percent')}%">
+                <div class="fill" style="width: ${this.getAttribute('percent')}%"></div>
+            </div>
         `;
     }
-
 
     static get observedAttributes() {
         return ['percent'];
     }
 
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name === 'percent') {
+            // Basic validation -> before setting the value
+            if (isNaN(newValue)) newValue = 0;
+            if (newValue < 0) newValue = 0;
+            if (newValue > 100) newValue = 100;
 
-    constructor() {
-        super();
-
-        this.bar_style = this.getAttribute('bar-style') || 'round';
-
-        this.attachShadow({ mode: 'open' });
-        this.render();
+            this.render();
+            this.shadowRoot.querySelector('.fill').style.width = `${newValue}%`;
+        }
     }
 
     render() {
@@ -65,8 +74,7 @@ class ProgressBar extends HTMLElement {
         `;
     }
 
-
-    /* SET & GET progressbar percent */
+    // Getter and Setter for percent attribute
     get percent() {
         const percent = this.getAttribute('percent');
         return Number(percent);
@@ -74,19 +82,6 @@ class ProgressBar extends HTMLElement {
 
     set percent(value) {
         this.setAttribute('percent', value);
-    }
-
-
-    attributeChangedCallback(name, oldValue, newValue) {
-        if(name === 'percent') {
-
-            // basic validation -> before setting the value
-            if(isNaN(newValue)) newValue = 0;
-            if(newValue < 0) newValue = 0;
-            if(newValue > 100) newValue = 100;
-
-            this.shadowRoot.querySelector('.fill').style.width = `${newValue}%`;
-        }
     }
 }
 

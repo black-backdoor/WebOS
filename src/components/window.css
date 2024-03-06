@@ -15,6 +15,7 @@
     --window-control-hover-maximize: #62d43f;
 }
 
+
 @media (prefers-color-scheme: dark) {
     :root {
         --window-head-color: #fff;
@@ -50,6 +51,10 @@ app-window > main {
     flex: 1;
 }
 
+/* -------------- DRAGGING -------------- */
+app-window.dragging {
+    z-index: 4000;
+}
 
 /* disable pointer events when dragging to avoid any interaction with iframe & etc */
 app-window.dragging > main {
@@ -66,6 +71,7 @@ body.context-menu-open iframe {
 }
 
 
+
 /* ############## WINDOW HEAD ############## */
 
 app-window > header {
@@ -76,6 +82,7 @@ app-window > header {
     color: var(--window-head-color);
     background-color: var(--window-head-bgcolor);
 
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -103,6 +110,7 @@ app-window > header .controls {
     padding: 0 8px;
 
     /* buttons align */
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -219,11 +227,13 @@ app-window:has(iframe) {
 /* ############## WINDOW OPTIONS ############## */
 
 /* -------------- FULLSCREEN -------------- */
+
 app-window.fullscreen {
-    top: 0px;
-    left: 0px ;
-    width: 100vw !important;
-    height: calc(100vh - var(--taskbar-height)) !important;
+    top: 0px !important;
+    left: 0px !important;
+    width: 100% !important;
+    height: var(--desktop-height) !important;
+    z-index: 3900;
 }
 
 app-window.fullscreen > header {
@@ -234,3 +244,15 @@ app-window.fullscreen > footer {
     border-radius: 0;
 }
 
+
+/* ---- ANIMATION ---- */
+app-window {
+    transition: all 180ms ease-in-out;
+}
+
+/* ? DISABLE ANIMATION WHEN DRAGGING -> if not, the window will lag behind the cursor */
+app-window.dragging { transition: none; }
+
+app-window.fullscreen {
+    transition: all 180ms ease-in-out;
+}

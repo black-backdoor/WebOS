@@ -6,7 +6,7 @@ class AppWindow extends HTMLElement {
             <section class="controls">
                 <button title="close" class="close"></button>
                 <button title="minimize" class="minimize"></button>
-                <button title="maximize" class="maximize"></button>
+                <button title="maximize" class="maximize" onclick="toggleFullScreen(this)"></button>
             </section>
             <h3 class="title">${window_title}</h3>
         </header>
@@ -69,6 +69,35 @@ class AppWindow extends HTMLElement {
 customElements.define('app-window', AppWindow);
 
 
+
+
+
+
+// WINDOW OVERLAP
+var zIndexCounter = 1;
+
+function resetZIndex() {
+    const elements = document.querySelectorAll('app-window');
+    zIndexCounter = 0;
+
+    elementsDict = {};
+    elements.forEach(item => {
+        elementsDict[item.style.zIndex] = item;
+    });
+
+    const sortedElements = Object.entries(elementsDict)
+        .sort((a, b) => b[0] - a[0])
+        .reduce((acc, [key, value]) => {
+            acc[key] = value;
+            return acc;
+        }, {});
+
+
+    for (const [key, value] of Object.entries(sortedElements)) {
+        value.style.zIndex = zIndexCounter++;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const desktop = document.querySelector("#desktop");
     const windows = document.querySelectorAll('app-window');
@@ -97,6 +126,18 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (e.type === 'touchstart') {
                 offsetX = e.touches[0].clientX - windowElement.getBoundingClientRect().left;
                 offsetY = e.touches[0].clientY - windowElement.getBoundingClientRect().top;
+            }
+
+            if ( windowElement.classList.contains('fullscreen') ) { 
+                // ! order of these two lines is important !
+                // ? we need the width of the window in non-fullscreen mode since else the windowElement.offsetWidth will be the width of the screen
+                windowElement.classList.remove('fullscreen');
+                offsetX = (windowElement.offsetWidth / 2);
+            }
+
+            windowElement.style.zIndex = zIndexCounter++;
+            if(zIndexCounter > (windows.length * 2)) {
+                resetZIndex();
             }
 
             // Add a move event listener to update the window position
@@ -192,3 +233,39 @@ function loadWindows() {
 document.addEventListener('DOMContentLoaded', function() {
     loadWindows();
 });
+
+
+// WINDOW FULLSCREEN BUTTON
+function getFirstAppWindowParent(element) {
+    let parent = element.parentElement;
+    while (parent) {
+        if (parent.tagName.toLowerCase() === 'app-window') {
+            return parent;
+        }
+        parent = parent.parentElement;
+    }
+    return null; // If no app-window parent is found
+}
+
+
+function toggleFullScreen(element) {
+    const appWindowParent = getFirstAppWindowParent(element);
+
+    // Set the z-index of the window to the highest value
+    appWindowParent.style.zIndex = zIndexCounter++;
+    
+    if (appWindowParent) {
+        if (appWindowParent.classList.contains('fullscreen')) {
+            appWindowParent.classList.remove('fullscreen');
+        } else {
+            appWindowParent.classList.add('fullscreen');
+        }
+    } else {
+        console.log("No app-window parent found.");
+    }
+}
+
+
+
+
+

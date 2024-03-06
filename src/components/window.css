@@ -227,6 +227,7 @@ app-window:has(iframe) {
 /* ############## WINDOW OPTIONS ############## */
 
 /* -------------- FULLSCREEN -------------- */
+
 app-window.fullscreen {
     top: 0px !important;
     left: 0px !important;
@@ -243,3 +244,15 @@ app-window.fullscreen > footer {
     border-radius: 0;
 }
 
+
+/* ---- ANIMATION ---- */
+app-window {
+    transition: all 180ms ease-in-out;
+}
+
+/* ? DISABLE ANIMATION WHEN DRAGGING -> if not, the window will lag behind the cursor */
+app-window.dragging { transition: none; }
+
+app-window.fullscreen {
+    transition: all 180ms ease-in-out;
+}

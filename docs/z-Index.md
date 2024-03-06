@@ -4,3 +4,4 @@
 - navigation-bar (mobile): `5000`
 - status-bar (mobile): `5000`
 - Window Dragging: `4000`
+- Window Fullscreen: `3900`

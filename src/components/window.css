@@ -232,6 +232,7 @@ app-window.fullscreen {
     left: 0px !important;
     width: 100% !important;
     height: var(--desktop-height) !important;
+    z-index: 3900;
 }
 
 app-window.fullscreen > header {

@@ -6,7 +6,7 @@ class AppWindow extends HTMLElement {
             <section class="controls">
                 <button title="close" class="close"></button>
                 <button title="minimize" class="minimize"></button>
-                <button title="maximize" class="maximize"></button>
+                <button title="maximize" class="maximize" onclick="toggleFullScreen(this)"></button>
             </section>
             <h3 class="title">${window_title}</h3>
         </header>
@@ -233,6 +233,33 @@ function loadWindows() {
 document.addEventListener('DOMContentLoaded', function() {
     loadWindows();
 });
+
+
+// WINDOW FULLSCREEN BUTTON
+function getFirstAppWindowParent(element) {
+    let parent = element.parentElement;
+    while (parent) {
+        if (parent.tagName.toLowerCase() === 'app-window') {
+            return parent;
+        }
+        parent = parent.parentElement;
+    }
+    return null; // If no app-window parent is found
+}
+
+
+function toggleFullScreen(element) {
+    const appWindowParent = getFirstAppWindowParent(element);
+    if (appWindowParent) {
+        if (appWindowParent.classList.contains('fullscreen')) {
+            appWindowParent.classList.remove('fullscreen');
+        } else {
+            appWindowParent.classList.add('fullscreen');
+        }
+    } else {
+        console.log("No app-window parent found.");
+    }
+}
 
 
 

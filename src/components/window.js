@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             
-            // logic for resizing the window
+            // ToDO: logic for resizing the window
         }
 
         windowElement.addEventListener('mousemove', resizeWindowMouse);        

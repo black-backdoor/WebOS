@@ -268,4 +268,67 @@ function toggleFullScreen(element) {
 
 
 
+// RESIZEING WINDOWS
+document.addEventListener('DOMContentLoaded', function() {
+    const desktop = document.querySelector("#desktop");
+    const windows = document.querySelectorAll('app-window');
+    windows.forEach(function (windowElement) {
+        function resizeWindowMouse(e) {
+            let height = windowElement.offsetHeight;
+            let width = windowElement.offsetWidth;
+            
+            const maxMouseDistance = 10;
 
+            let offsetX = windowElement.getBoundingClientRect().left;
+            let offsetY = windowElement.getBoundingClientRect().top;
+
+            // get mouse position
+            let x = e.clientX - offsetX;
+            let y = e.clientY - offsetY;
+
+            // return if the mouse is outside the window
+            if(x > width) { return; }
+            if(y > height) { return; }
+
+
+            const leftEdge = (x < maxMouseDistance);
+            const rightEdge = (width - x) < maxMouseDistance;
+            const bottomEdge = (height - y) < maxMouseDistance;
+            
+            
+            // sides
+            if (leftEdge) {
+                windowElement.style.cursor = "ew-resize";
+            }
+
+            if (rightEdge) {
+                windowElement.style.cursor = "ew-resize";
+            }
+ 
+            if (bottomEdge) {
+                windowElement.style.cursor = "ns-resize";
+            }
+
+            
+            // corners
+            if (leftEdge && bottomEdge) {
+                windowElement.style.cursor = "sw-resize";
+            }
+
+            if (rightEdge && bottomEdge) {
+                windowElement.style.cursor = "se-resize";
+            }
+
+
+            // if the mouse is not on the edge of the window
+            if(!leftEdge && !rightEdge && !bottomEdge) {
+                windowElement.style.cursor = "default";
+            }
+
+            
+            // logic for resizing the window
+        }
+
+        windowElement.addEventListener('mousemove', resizeWindowMouse);        
+    });
+});

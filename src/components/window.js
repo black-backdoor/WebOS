@@ -297,24 +297,17 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             // sides
-            if (leftEdge) {
+            if (leftEdge || rightEdge) {
                 windowElement.style.cursor = "ew-resize";
             }
-
-            if (rightEdge) {
-                windowElement.style.cursor = "ew-resize";
-            }
- 
             if (bottomEdge) {
                 windowElement.style.cursor = "ns-resize";
             }
-
             
             // corners
             if (leftEdge && bottomEdge) {
                 windowElement.style.cursor = "sw-resize";
             }
-
             if (rightEdge && bottomEdge) {
                 windowElement.style.cursor = "se-resize";
             }

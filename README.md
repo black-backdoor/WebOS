@@ -20,6 +20,21 @@
     </strong>
 </p>
 
+# DEVELOPMENT HALTED (for now) 🛑
+I have stopped working on this project for now. Maybe I will continue it in the future. If you want to contribute, feel free to do so. I will be happy to see your contributions. 😊
+
+It was a quite a challenge to make a web-based operating system, and I learned a lot from it. I will be using the knowledge I gained from this project in my future projects.
+
+If I continue this project in the future, I think I will start from scratch and maybe even use a framework like React.
+
+If you want to try it out, you can still use the demo. It is still available. 😊
+&nbsp;
+
+<!--
+after the last update, no features have been added the only addition made are some icons
+-->
+
+
 
 ## Features
 - **Static** - No server-side code, only client-side JavaScript, HTML, and CSS.

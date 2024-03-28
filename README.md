@@ -25,7 +25,7 @@ I have stopped working on this project for now. Maybe I will continue it in the 
 
 It was a quite a challenge to make a web-based operating system, and I learned a lot from it. I will be using the knowledge I gained from this project in my future projects.
 
-If I continue this project in the future, I think I will start from scratch and maybe even use a framework like React.
+If I continue this project in the future, I think I will start from scratch and maybe even use a framework like React or at least a icon library like Font Awesome. This would make the development process much easier and faster. Tailwind CSS would also be a good choice for styling.
 
 If you want to try it out, you can still use the demo. It is still available. 😊
 &nbsp;
